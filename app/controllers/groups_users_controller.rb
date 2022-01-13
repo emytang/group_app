@@ -9,6 +9,18 @@ class GroupsUsersController < ApplicationController
     render plain: @group.name
   end
   
+  def create
+    @group = Group.find( params[:group_id])
+    @group.users << User.find(params[:id])
+  end
   
+  def new
+    @group = Group.find( params[:group_id])
+    # @group = Group.new
+    
+  end
+  
+  def show
+  end
   
 end
