@@ -1,19 +1,26 @@
-<p>
+<div class="jumbotron bg-light">
+  
+  <p class='lead'>
   <strong>Name:</strong>
   <%= @group.name %>
-</p>
+  </p>
+  
+  <p class='lead'>
+    <strong>Email:</strong>
+    <%= @group.email %>
+  </p>
+  
+  <p class='lead'>
+    <strong>Description:</strong>
+    <%= @group.description %>
+  </p>
+  
+  <%= link_to 'Edit', edit_group_path(@group), class:"btn btn-secondary" %>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @group.email %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @group.description %>
-</p>
 
-<%= link_to 'Edit', edit_group_path(@group) %>
+
 <%= link_to 'Back', groups_path %>
 
 
