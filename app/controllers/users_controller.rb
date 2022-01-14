@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @user = User.new
   end
 
   # GET /users/1
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html { render :edit }
+        format.html { render action:edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

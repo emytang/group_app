@@ -23,4 +23,8 @@ class GroupsUsersController < ApplicationController
   def show
   end
   
+  def find
+    render @group.find(@group.users.id = 6)
+  end
+  
 end
