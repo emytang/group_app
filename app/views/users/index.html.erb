@@ -5,6 +5,7 @@
 <table class ="table table-striped table-bordered table-hover">
   <thead class ="thead-dark">
     <tr>
+      <th>Actions</th>
       <th>First name</th>
       <th>Last name</th>
       <th>Email</th>
@@ -17,14 +18,29 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              A
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <!--<li><a class="dropdown-item" href="/groups">View</a></li>-->
+              <li><%= link_to 'View', user, class:"dropdown-item" %></li>
+              <!--<li><a class="dropdown-item" href="#">Delete</a></li>-->
+              <li><%= link_to 'Delete', user, class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?'  } %></li>
+              
+    
+            </ul>
+          </div>
+        </td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= user.created_at %></td>
         <td><%= user.updated_at %></td>
-        <td><%= link_to 'View', user %></td>
+        <!--<td><%= link_to 'View', user %></td>-->
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!--<td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
