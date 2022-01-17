@@ -4,6 +4,9 @@ class User < ApplicationRecord
   validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
   has_many :groups_users 
   has_many :groups, :through => :groups_users
+  # 
+  has_many :user_groups
+  has_many :groups, through: :user_groups
   
   
 end
