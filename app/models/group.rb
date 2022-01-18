@@ -5,6 +5,6 @@ class Group < ApplicationRecord
     has_many :groups_users
     has_many :users, :through => :groups_users
     # has_one :groups_users, dependent: :destroy  #through: "groups_users"
-    has_many :user_groups
+    has_many :user_groups, dependent: :destroy
     has_many :users, through: :user_groups
 end
