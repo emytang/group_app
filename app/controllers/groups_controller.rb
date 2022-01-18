@@ -16,6 +16,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @members = @group.users
+    # @notmembers = UserGroup.not_in_group(Group.find(params[:id]))
+    @notmembers = Group.find(params[:id]).get_users_not_in_shop_group
   end
 
   # GET /groups/new

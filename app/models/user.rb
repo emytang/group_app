@@ -8,5 +8,12 @@ class User < ApplicationRecord
   has_many :user_groups, dependent: :destroy
   has_many :groups, through: :user_groups
   
+  def member_of_group?(group)
+    groups.exists?(group)
+  end
+  
+  def self.not_in_group(groupid)
+      includes(:user_groups).where("user_groups.group_id != ?", groupid)
+  end
   
 end

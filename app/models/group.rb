@@ -7,4 +7,15 @@ class Group < ApplicationRecord
     # has_one :groups_users, dependent: :destroy  #through: "groups_users"
     has_many :user_groups, dependent: :destroy
     has_many :users, through: :user_groups
+    
+    def has_user_member?(user)
+    users.exists?(user)
+    end
+    
+    attr_accessor :group_id
+    
+    def get_users_not_in_shop_group
+        UserGroup.not_in_group(group_id)
+    end
+    
 end
