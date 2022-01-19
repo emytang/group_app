@@ -21,11 +21,10 @@
             <%  @notmembers.empty? %>
             <% @notmembers.each do |member| %>
               <tr>
-                <td><%= member.id %></td>
-                <td><%= @group.id %></td>
+                <!--<td><%= member.id %></td>-->
+                <!--<td><%= @group.id %></td>-->
                 <td>
-                   <%= link_to 'Add', group_path %>
-                    <button type="button" class="btn btn-secondary"><%= link_to 'Add', add_to_group_path(@group, member) %></button>
+                    <%= link_to 'Add', add_to_group_path(@group, member), class: "btn btn-secondary"%>
 
                 </td>
                 <td><%= member.first_name %></td>

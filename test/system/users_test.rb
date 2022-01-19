@@ -23,8 +23,33 @@ class UsersTest < ApplicationSystemTestCase
     click_on "Back"
   end
 
+  # test "updating a User" do
+  #   visit users_url
+  #   click_on "Edit", match: :first
+
+  #   fill_in "Email", with: @user.email
+  #   fill_in "First name", with: @user.first_name
+  #   fill_in "Last name", with: @user.last_name
+  #   click_on "Update User"
+
+  #   assert_text "User was successfully updated"
+  #   click_on "Back"
+  # end
+
+  test "destroying a User" do
+    visit users_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
+
+    assert_difference('User.count', -1) do
+      delete user_url(@user)
+    end
+  end
+  
   test "updating a User" do
     visit users_url
+    find('button').click
     click_on "Edit", match: :first
 
     fill_in "Email", with: @user.email
@@ -35,13 +60,6 @@ class UsersTest < ApplicationSystemTestCase
     assert_text "User was successfully updated"
     click_on "Back"
   end
-
-  test "destroying a User" do
-    visit users_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
-    end
-
-    assert_text "User was successfully destroyed"
-  end
+  
+  
 end
