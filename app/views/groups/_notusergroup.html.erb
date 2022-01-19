@@ -24,11 +24,11 @@
                 <!--<td><%= member.id %></td>-->
                 <!--<td><%= @group.id %></td>-->
                 <td>
-                   <%= link_to 'Delete', member, class:"btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?'  } %>
+                   <%= link_to 'Add', group_path %>
                 </td>
-                <td><%= member.first_name %></td>
-                <td><%= member.last_name %></td>
-                <td><%= member.email %></td>
+                <td><%= member.user.first_name %></td>
+                <td><%= member.user.last_name %></td>
+                <td><%= member.user.email %></td>
               </tr>
             <% end %>
         </tbody>
