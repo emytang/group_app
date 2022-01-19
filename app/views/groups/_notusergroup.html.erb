@@ -18,6 +18,7 @@
           </thead>
 
           <tbody>
+            <%  @notmembers.empty? %>
             <% @notmembers.each do |member| %>
               <tr>
                 <!--<td><%= member.id %></td>-->

@@ -1,5 +1,6 @@
 class UsersGroupsController < ApplicationController
   # before_action :set_group, only: [:show, :edit, :update, :destroy]
+  helper_method :revoke_from_group
 
   # GET /groups
   # GET /groups.json
@@ -25,6 +26,11 @@ class UsersGroupsController < ApplicationController
   
   def find
     render @group.find(@group.users.id = 77)
+  end
+  
+  def revoke_from_group(member_id)
+    mem = UserGroup.find_by(user_id: member_id) 
+    mem.destroy
   end
   
 end

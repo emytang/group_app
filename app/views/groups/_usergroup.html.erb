@@ -23,7 +23,8 @@
                 <!--<td><%= member.id %></td>-->
                 <!--<td><%= @group.id %></td>-->
                 <td>
-                   <%= link_to 'Delete', member, class:"btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?'  } %>
+                  <button type="button" class="btn btn-danger"><%= link_to 'Delete', revoke_from_group_path(member.id), data: { confirm: 'Are you sure?'  } %></button>
+                  
                 </td>
                 <td><%= member.first_name %></td>
                 <td><%= member.last_name %></td>

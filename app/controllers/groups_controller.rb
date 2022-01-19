@@ -16,10 +16,20 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @members = @group.users
-    # @notmembers = UserGroup.not_in_group(Group.find(params[:id]))
+    # @notmembers = User.not_in_group(Group.find(params[:id]))
     @notmembers = Group.find(params[:id]).get_users_not_in_shop_group
+    
   end
 
+  # def revoke_from_group
+  #   @members.find_by(user_id: ).destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
+  
+  
   # GET /groups/new
   def new
     @group = Group.new

@@ -18,4 +18,7 @@ class Group < ApplicationRecord
         UserGroup.not_in_group(group_id)
     end
     
+    scope :not_in_group, -> group_id {joins('LEFT JOIN user_groups ON user_groups.user_id = users.id').where("user_groups.group_id != ? OR user_groups.group_id is null", group_id)}
+
+    
 end
