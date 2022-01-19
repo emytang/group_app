@@ -19,6 +19,6 @@ g1 = Group.create(name: "G1", email: "g1@v.c", description: "ggg")
 g2 = Group.create(name: "G2", email: "g2@v.c", description: "ggg")
 
 # GroupUser.create(group_id: "13", user_id: a1.id)
-UserGroup.create(group_id: "18", user_id: a1.id)
-UserGroup.create(group_id: "18", user_id: a2.id)
+# UserGroup.create(group_id: "18", user_id: a1.id)
+# UserGroup.create(group_id: "18", user_id: a2.id)
 # UserGroup.create(group_id: "19", user_id: a2.id)

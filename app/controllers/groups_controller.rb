@@ -28,15 +28,23 @@ class GroupsController < ApplicationController
     
   end
 
-  # def revoke_from_group
-  #   mem = UserGroup.find_by(params[:id]) 
-  #   mem.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
-  
+  def add_to_group
+    g = Group.find_by(params[:id])
+    mem = User.find_by(params[:id])
+    @added = UserGroup.create(group_id: g.id, user_id: mem.id)
+    respond_to do |format|
+      if @added.save
+        format.html { redirect_to g, notice: 'User was successfully added.' }
+        format.json { render :show, status: :created, location: @group }
+        # format.datetime :created_at, null: false
+      else
+        format.html { render :new }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
+      # format.datetime :created_at, null: false
+    end
+    
+  end
   
   # GET /groups/new
   def new

@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   # get 'ajax/:action', to: 'ajax#:action', :defaults => { :format => 'json' }
 
   get '/revoke_from_group', to: 'application#revoke_from_group', as: :revoke_from_group
-  # get '/revoke_from_group', to: 'groups#revoke_from_group', as: :revoke_from_group
+  get 'groups/:group_id/add_to_group/:id', to: 'groups#add_to_group', as: :add_to_group
+  
 
   root 'groups#index'
 end
