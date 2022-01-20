@@ -1,0 +1,32 @@
+<!--<h4 style="display:inline;">Group Name: <%= @user.first_name %></h1>-->
+
+
+<div class="container">
+    <div class="row">
+        <table readonly class ="table table-striped table-bordered table-hover">
+
+          <thead class ="thead-dark">
+            <tr>
+              <!--<th>Member ID</th>-->
+              <!--<th>Group ID</th>-->
+              <th>Group Name</th>
+              <th>Group Email</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @members.each do |g| %>
+              <tr>
+                <!--<td><%= g.id %></td>-->
+                <!--<td><%= @user.id %></td>-->
+                <td><%= g.name %></td>
+                <td><%= g.email %></td>
+                <td><%= g.description %></td>
+              </tr>
+            <% end %>
+        </tbody>
+
+        </table>
+    </div>
+</div>
