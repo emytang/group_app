@@ -27,6 +27,12 @@ group :test do
   gem 'webdrivers',         '4.6.0'
 end
 
+# group :development, :test do
+#   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+#   gem 'capybara', '~> 3.32', '>= 3.32.2'
+#   gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
+# end
+
 group :production do
   gem 'pg', '1.2.3'
 end
