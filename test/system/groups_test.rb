@@ -3,6 +3,8 @@ require "application_system_test_case"
 class GroupsTest < ApplicationSystemTestCase
   setup do
     @group = groups(:one)
+    @user = users(:one)
+    @team = user_groups(:one)
   end
 
   test "visiting the index" do
@@ -12,47 +14,21 @@ class GroupsTest < ApplicationSystemTestCase
 
   test "creating a Group" do
     visit groups_url
-    find('button').click
+    # find('button-1').click
     click_on "Add New Group"
-    
 
-    fill_in "Description", with: @group.description
-    fill_in "Email", with: @group.email
-    fill_in "Name", with: @group.name
+    fill_in "Description", with: "aaaa" #@group.description
+    fill_in "Email", with: "a@g.v" #@group.email
+    fill_in "Name", with: "g1" #@group.name
     click_on "Create Group"
 
     assert_text "Group was successfully created"
   end
 
-  # test "updating a Group" do
-  #   visit groups_url
-  #   click_on "Edit", match: :first
-    
-
-  #   fill_in "Description", with: @group.description
-  #   fill_in "Email", with: @group.email
-  #   fill_in "Name", with: @group.name
-  #   click_on "Update Group"
-
-  #   assert_text "Group was successfully updated"
-  #   click_on "Back"
-  # end
-
-  # test "destroying a Group" do
-  #   visit groups_url
-  #   page.accept_confirm do
-  #     click_on "Destroy", match: :first
-  #   end
-
-  #   assert_text "Group was successfully destroyed"
-  # end
   
   
   test "updating a Group" do
-    visit groups_url
-    find('button.dropdown-toggle').click
-    click_on("View")
-    find('button').click
+    visit group_path @group
     click_on "Edit"
 
     fill_in "Description", with: @group.description
@@ -65,39 +41,32 @@ class GroupsTest < ApplicationSystemTestCase
 
   test "destroying a Group" do
     visit groups_url
-    find('button.dropdown-toggle').click
+    first('button.dropdown-toggle').click
     click_on("Delete")
-    
-    page.accept_confirm do
-      click_on "Delete", match: :first
-    end
 
-    assert_difference('Group.count', -1) do
-      delete group_url(@group)
-    end
+    page.driver.browser.switch_to.alert.accept
+
     assert_text "Group was successfully destroyed"
   end
   
   test "delete a User from a Group" do
-    visit group_url
-    find('button').click
+    visit group_path @group
+    click_on("ADD")
+    click_on('Add')
+
     click_on("Delete")
-    
-    page.accept_confirm do
-      click_on "Delete", match: :first
-    end
+
+    page.driver.browser.switch_to.alert.accept
 
     assert_text "User was successfully destroyed in the group"
     
   end
   
   test "add a User to a Group" do
-    visit group_url
-    find('button').click
-    click_on("Add")
-    
-    find('button').click
-    click_on("Add")
+    visit group_url @group
+    click_on("ADD")
+
+    click_on('Add')
 
     assert_text "User was successfully added"
     
