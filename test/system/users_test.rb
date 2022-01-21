@@ -21,7 +21,6 @@ class UsersTest < ApplicationSystemTestCase
     click_on "Create User"
 
     assert_text "User was successfully created"
-    # click_on "Back"
   end
 
   # test "updating a User" do
@@ -69,7 +68,7 @@ class UsersTest < ApplicationSystemTestCase
     click_on("Delete")
     
     page.accept_confirm do
-      click_on "OK", match: :first
+      click_on "Delete", match: :first
     end
 
     assert_difference('User.count', -1) do

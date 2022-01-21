@@ -69,7 +69,7 @@ class GroupsTest < ApplicationSystemTestCase
     click_on("Delete")
     
     page.accept_confirm do
-      click_on "OK", match: :first
+      click_on "Delete", match: :first
     end
 
     assert_difference('Group.count', -1) do
@@ -84,7 +84,7 @@ class GroupsTest < ApplicationSystemTestCase
     click_on("Delete")
     
     page.accept_confirm do
-      click_on "OK", match: :first
+      click_on "Delete", match: :first
     end
 
     assert_text "User was successfully destroyed in the group"
