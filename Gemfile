@@ -26,6 +26,7 @@ group :test do
   gem 'selenium-webdriver', '3.142.7'
   gem 'webdrivers',         '4.6.0'
   gem 'cuprite'
+  gem 'minitest-rails', "~> 6.1.0"
 end
 
 # group :development, :test do
