@@ -11,7 +11,6 @@
       <th>Email</th>
       <th>Created At</th>
       <th>Updated At</th>
-      <!--<th colspan="5"></th>-->
     </tr>
   </thead>
 
@@ -24,9 +23,7 @@
               A
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <!--<li><a class="dropdown-item" href="/groups">View</a></li>-->
               <li><%= link_to 'View', user, class:"dropdown-item" %></li>
-              <!--<li><a class="dropdown-item" href="#">Delete</a></li>-->
               <li><%= link_to 'Delete', user, class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?'  } %></li>
               
     
@@ -38,12 +35,7 @@
         <td><%= user.email %></td>
         <td><%= user.created_at %></td>
         <td><%= user.updated_at %></td>
-        <!--<td><%= link_to 'View', user %></td>-->
-        <!--<td><%= link_to 'Edit', edit_user_path(user) %></td>-->
         
-        
-        
-        <!--<td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>

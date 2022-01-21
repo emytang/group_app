@@ -28,9 +28,5 @@ class UsersGroupsController < ApplicationController
     render @group.find(@group.users.id = 77)
   end
   
-  # def revoke_from_group(member_id)
-  #   mem = UserGroup.find_by(user_id: member_id) 
-  #   mem.destroy
-  # end
   
 end

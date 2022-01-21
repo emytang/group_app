@@ -9,23 +9,22 @@
       <th>Description</th>
       <th>Created At</th>
       <th>Updated At</th>
-      <!--<th colspan="6"></th>-->
     </tr>
   </thead>
 
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <!--<td><%= link_to 'Action', class:"dropdown"  %></td>-->
+        
         <td>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               A
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <!--<li><a class="dropdown-item" href="/groups">View</a></li>-->
+              
               <li><%= link_to 'View', group, class:"dropdown-item" %></li>
-              <!--<li><a class="dropdown-item" href="#">Delete</a></li>-->
+             
               <li><%= link_to 'Delete', group, class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?'  } %></li>
               
     
@@ -37,9 +36,7 @@
         <td><%= group.description %></td>
         <td><%= group.created_at %></td>
         <td><%= group.updated_at %></td>
-        <!--<td><%= link_to 'View', group %></td>-->
-        <!--<td><%= link_to 'Edit', edit_group_path(group) %></td>-->
-        <!--<td><%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        
       </tr>
     <% end %>
   </tbody>

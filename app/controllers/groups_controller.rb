@@ -16,14 +16,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @members = @group.users
-    # @usersall = User.all
-    # @notmembers = User.not_in_group(Group.find(params[:id]))
-    # @notmembers = Group.find(params[:id]).get_users_not_in_shop_group
-    # @notmembers = User.where("user_groups.group_id != ? OR user_groups.group_id is null", @group.id)
-    # @notmembers = UserGroup.where.not(group_id: @group.id) #not error but wrong 
-    # @notmembers = User.joins(:user_groups).where.not(group_id: @group.id)
     @notmembers = User.not_in_group(@group)
-        # scope :not_in_group, -> group_id {joins('LEFT JOIN user_groups ON user_groups.user_id = users.id').where("user_groups.group_id != ? OR user_groups.group_id is null", group_id)}
 
     
   end

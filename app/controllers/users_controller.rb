@@ -16,10 +16,7 @@ class UsersController < ApplicationController
   end
 
   
-  # POST /users
-  # POST /users.json
-  def groupbelong
-  end
+  
   
   # GET /users/new
   def new
