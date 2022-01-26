@@ -1,10 +1,9 @@
 class User < ApplicationRecord
-  # belongs_to :group
+  before_save { self.email = email.downcase }
   validates_presence_of :first_name, :last_name, :email
   validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
   has_many :groups_users 
   has_many :groups, :through => :groups_users
-  # 
   has_many :user_groups, dependent: :destroy
   has_many :groups, through: :user_groups
   
