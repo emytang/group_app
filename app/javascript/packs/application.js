@@ -13,3 +13,8 @@ Turbolinks.start()
 ActiveStorage.start()
 
 //= require bootstrap-modal
+require('@client-side-validations/client-side-validations')
+require('@client-side-validations/simple-form')
+
+// Bootstrap 4+ with `require` syntax
+require('@client-side-validations/simple-form/dist/simple-form.bootstrap4.esm')

@@ -59,8 +59,10 @@ class GroupsController < ApplicationController
         format.json { render :show, status: :created, location: @group }
         # format.datetime :created_at, null: false
       else
-        format.html { render :new }
+        format.html { render :new, locals: { :template => @group.group_id }}
+
         format.json { render json: @group.errors, status: :unprocessable_entity }
+        # render @group.errors.full_messages
       end
       # format.datetime :created_at, null: false
     end

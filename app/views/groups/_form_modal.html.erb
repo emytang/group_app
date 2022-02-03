@@ -1,0 +1,11 @@
+<div class="modal fade" id="form_modal">
+  <%= simple_form_for @group, local: false, validate: true do |form| %>
+
+    <%= form.input :name %>
+    <%= form.input :email %>
+    <%= form.input :description %>
+    <%= form.submit %>
+
+
+  <% end %>
+</div>
