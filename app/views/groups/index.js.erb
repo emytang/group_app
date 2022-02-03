@@ -1,0 +1,15 @@
+//$("#new-group-form").html("<%= j(render 'form') %>");
+//$("#exampleModal").modal('show');
+
+//$("##new-group-form").html('<%= j(render(:partial => "form"))%>');
+//$('form').live("click",function() {
+//    $(this).enableClientSideValidations();
+//});
+
+//$('#exampleModal').on('shown.bs.modal', function () {
+//    $(ClientSideValidations.selectors.forms).validate();
+//});
+
+$('#exampleModal').on('shown', function () {
+    $(ClientSideValidations.selectors.forms).validate();
+});

@@ -13,3 +13,11 @@ Turbolinks.start()
 ActiveStorage.start()
 
 //= require bootstrap-modal
+//= require jquery
+//= require rails.validations
+//= require jquery_ujs
+//= require rails.validations
+//= require rails.validations.simple_form
+//= require_tree .
+//= require('@client-side-validations/client-side-validations')
+//= require('@client-side-validations/simple-form/dist/simple-form.bootstrap4.esm')

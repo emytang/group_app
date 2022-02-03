@@ -53,14 +53,38 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
 
+    @errorName = []
+    @errorEmail = []
+    @errorDescription = []
+
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
         # format.datetime :created_at, null: false
       else
+        # format.turbo_stream
         format.html { render :new }
         format.json { render json: @group.errors, status: :unprocessable_entity }
+        #
+        # format.js
+        # @group.errors.any?
+        # if (@group.errors["name"] != nil)
+        #   @errorName.push(@group.errors["name"][0])
+        # end
+        # if (@group.errors["email"] != nil)
+        #   @errorEmail.push(@group.errors["content"][0])
+        # end
+        # if (@group.errors["description"] != nil)
+        #   @errorDescription.push(@group.errors["content"][0])
+        # end
+        # render 'errors'
+        # if @group.errors.any?
+        #   # flash[:error] = @group.full_messages.join(', ')
+        #   format.html { render :index }
+        #   format.json { render json: @group.errors, status: :unprocessable_entity }
+        # end
+
       end
       # format.datetime :created_at, null: false
     end

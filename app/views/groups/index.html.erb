@@ -45,6 +45,8 @@
 <br>
 
 
+<div id="new-group-form">
+
 <button type="button-1" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Add New Group</button>
 
 
@@ -57,7 +59,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= render 'form', group: @group %>
+        <%= render 'form', group: @group%>
+        <%#= link_to "New Group", new_group_path, remote: true, class: 'btn btn-info'%>
+        <%# if  @group.errors.present?%>
+<!--          <script>-->
+<!--              $(window).load(function () {-->
+<!--                  $('#exampleModal').modal('show');-->
+<!--              });-->
+<!--          </script>-->
+        <%# end  %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -66,3 +76,4 @@
   </div>
 </div>
 
+</div>

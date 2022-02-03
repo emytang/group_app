@@ -41,6 +41,15 @@ group :production do
   gem 'pg', '1.2.3'
 end
 
+gem 'simple_form'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
+gem 'responders'
+gem 'bootstrap'
+gem 'jquery-rails', '~> 4.3'
+gem 'turbolinks_render'
+
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # Uncomment the following line if you're running Rails
 # on a native Windows system:

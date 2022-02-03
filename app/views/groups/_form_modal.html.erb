@@ -1,0 +1,28 @@
+<h1> hiiiii</h1>
+<div class="modal fade" id="form_modal">
+  <h1>aaa</h1>
+  <%= simple_form_for @group, validate: true do |f| %>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h5 class="modal-title" ><%="#{params[:action].titleize} Group" %></h5>
+
+      </div>
+      <div class="modal-body">
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :name, validate: { presence: true, uniqueness: false } %>
+          <%= f.input :email, validate: { presence: true, uniqueness: false } %>
+          <%= f.input :description %>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+<!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>-->
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+    <% end %>
+</div>
