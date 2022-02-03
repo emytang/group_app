@@ -42,6 +42,10 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /groups/1/edit

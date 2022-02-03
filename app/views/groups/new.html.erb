@@ -1,7 +1,9 @@
 <h1>Create A New Group</h1>
 
-<%= render 'form', group: @group %>
+<%= render 'new', group: @group %>
 
 <!--<%= link_to 'Back', groups_path %>-->
 
 
+<div id="person-form" title="Person" style="display:none"></div>
+<%= link_to 'Edit Profile', new_group_path, :remote => true %>
