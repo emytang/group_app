@@ -52,11 +52,8 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-    # format.js { Rails.logger.debug("XXXXXX   JS") }
-    # format.html { Rails.logger.debug("XXXXXX   HTML") }
     respond_to do |format|
       if @group.save
-        format.js { Rails.logger.debug("XXXXXX   JS") }
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
         # format.datetime :created_at, null: false
@@ -77,6 +74,7 @@ class GroupsController < ApplicationController
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
       else
+        format.js
         format.html { render :edit }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
