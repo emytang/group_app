@@ -10,6 +10,7 @@ gem 'turbolinks', '5.2.1'
 gem 'jbuilder',   '2.10.0'
 gem 'bootsnap',   '1.7.2', require: false
 gem 'rails-controller-testing'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.4.2'
@@ -21,6 +22,7 @@ group :development do
   gem 'rack-mini-profiler', '2.3.1'
   gem 'listen',             '3.4.1'
   gem 'spring',             '2.1.1'
+  gem 'foreman'
 end
 
 group :test do
