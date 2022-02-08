@@ -24,19 +24,19 @@ class GroupsController < ApplicationController
   def add_to_group
     g = Group.find_by(params[:group_id])
     mem = User.find_by(params[:id])
-    # mem = User.find(3)
-    puts g.inspect
-    puts mem.inspect
+    @added = UserGroup.create(group_id: g.id, user_id: mem.id)
     respond_to do |format|
-      if mem.membership? g
-        format.html { redirect_to g, notice: 'User is already in the Group.' }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      else
-        g.users << mem
+      if @added.save
         format.html { redirect_to g, notice: 'User was successfully added.' }
         format.json { render :show, status: :created, location: @group }
+        # format.datetime :created_at, null: false
+      else
+        format.html { render :new }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
       end
+      # format.datetime :created_at, null: false
     end
+    
   end
   
   # GET /groups/new

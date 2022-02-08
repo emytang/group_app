@@ -21,8 +21,8 @@
             <%  @notmembers.empty? %>
             <% @notmembers.each do |member| %>
               <tr>
-<!--                <td><%#= member.id %></td>-->
-<!--                <td><%#= @group.id %></td>-->
+                <!--<td><%= member.id %></td>-->
+                <!--<td><%= @group.id %></td>-->
                 <td>
                     <%= link_to 'Add', add_to_group_path(@group, member), class: "btn btn-secondary"%>
 
