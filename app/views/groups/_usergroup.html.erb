@@ -21,7 +21,7 @@
             <% @members.each do |member| %>
               <tr>
                 <!--<td><%= member.id %></td>-->
-                <!--<td><%= @group.id %></td>-->
+                <td><%= @group.id %></td>
                 <td>
                    <%= link_to 'Delete', revoke_from_group_path(member.id), data: { confirm: 'Are you sure?'  }, class: "btn btn-danger"%>
 
