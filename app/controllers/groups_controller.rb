@@ -22,17 +22,17 @@ class GroupsController < ApplicationController
   end
 
   def add_to_group
-    g = Group.find_by(params[:group_id])
-    mem = User.find_by(params[:id])
-    puts g.inspect
-    puts mem.inspect
+    @g = Group.find_by(params[:group_id])
+    users = User.all
+    mem = users.find_by(id: params[:id] )
+
     respond_to do |format|
-      if mem.membership? g
-        format.html { redirect_to g, notice: 'User is already in the Group.' }
+      if mem.membership? @g
+        format.html { redirect_to @g, notice: 'User is already in the Group.' }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       else
-        g.users << mem
-        format.html { redirect_to g, notice: 'User was successfully added.' }
+        @g.users << mem
+        format.html { redirect_to @g, notice: 'User was successfully added.' }
         format.json { render :show, status: :created, location: @group }
       end
       # format.datetime :created_at, null: false
