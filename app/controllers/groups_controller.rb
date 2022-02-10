@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :correct_group, only: [:add_to_group]
+  # before_action :correct_group, only: [:add_to_group]
   # GET /groups
   # GET /groups.json
   def index
@@ -15,7 +15,8 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
-
+    @members = @group.users
+    @notmembers = User.not_in_group(@group)
 
 
     
@@ -37,7 +38,15 @@ class GroupsController < ApplicationController
       end
       # format.datetime :created_at, null: false
     end
-    
+  end
+
+  def revoke_from_group
+    mem = UserGroup.find_by(params[:id])
+    g = Group.find_by(id: params[:group_id])
+    mem.destroy
+    puts g.inspect
+    puts mem.inspect
+    redirect_to group_path, notice: 'User was successfully destroyed in the group.'
   end
   
   # GET /groups/new
@@ -92,17 +101,16 @@ class GroupsController < ApplicationController
     end
   end
 
-  def correct_group
-    @group = Group.find(params[:group_id])
-    redirect_to groups_path, notice: 'Invalid group' if @group.nil?
-  end
+  # def correct_group
+  #   @group = Group.find(id: params[:group_id])
+  #   redirect_to groups_path, notice: 'Invalid group' if @group.nil?
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       @group = Group.find(params[:id])
-      @members = @group.users
-      @notmembers = User.not_in_group(@group)
+
     end
 
     # Only allow a list of trusted parameters through.

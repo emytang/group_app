@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get 'groups/users'
 
-  get '/revoke_from_group', to: 'application#revoke_from_group', as: :revoke_from_group
+  get 'groups/:group_id/revoke_from_group/:id', to: 'groups#revoke_from_group', as: :revoke_from_group
   get 'groups/:group_id/add_to_group/:id', to: 'groups#add_to_group', as: :add_to_group
   # get 'groups/:id', to: 'groups#show'
 
