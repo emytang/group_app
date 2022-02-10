@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
   end
 
   def add_to_group
-    @g = Group.find_by(params[:group_id])
+    @g = Group.find_by(id: params[:group_id])
     users = User.all
     mem = users.find_by(id: params[:id] )
 
