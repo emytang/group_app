@@ -19,6 +19,8 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Group.count') do
       post groups_url, params: { group: { description: @group.description, email: @group.email, name: @group.name } }
     end
+    # post groups_url, params: { group: { description: @group.description, email: @group.email, name: @group.name } }
+
 
     assert_redirected_to group_url(Group.last)
   end
