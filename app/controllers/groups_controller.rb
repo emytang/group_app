@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  # before_action :correct_group, only: [:add_to_group]
   # GET /groups
   # GET /groups.json
   def index
@@ -17,7 +16,6 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @members = @group.users
     @notmembers = User.not_in_group(@group)
-
 
     
   end
@@ -101,10 +99,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # def correct_group
-  #   @group = Group.find(id: params[:group_id])
-  #   redirect_to groups_path, notice: 'Invalid group' if @group.nil?
-  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

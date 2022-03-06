@@ -9,7 +9,6 @@ class Group < ApplicationRecord
     has_many :user_groups, dependent: :destroy
     has_many :users, through: :user_groups
     attr_accessor :group_id
-    # validates_uniqueness_of :users
 
     
 end
