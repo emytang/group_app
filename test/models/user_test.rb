@@ -6,6 +6,16 @@ class UserTest < ActiveSupport::TestCase
     @user2 = User.new(first_name: "A2", last_name: "a2", email: "a2@example.com")
   end
 
+  test "not_in_group(group)" do
+    @user = User.create!(first_name: "A1", last_name: "a1", email: "a1@example.com")
+    @user2 = User.create!(first_name: "A2", last_name: "a2", email: "a2@example.com")
+    @group = Group.find_by(name: "MyString")
+    assert_equal(3, User.not_in_group(@group).count)
+    @group.users << @user
+    assert_equal(2, User.not_in_group(@group).count)
+
+  end
+
   test "should be valid" do
     assert @user.valid?
   end

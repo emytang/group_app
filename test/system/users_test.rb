@@ -12,7 +12,6 @@ class UsersTest < ApplicationSystemTestCase
 
   test "creating a User" do
     visit users_url
-    # find('button').click
     click_on "Add New User"
 
     fill_in "Email", with: @user.email
