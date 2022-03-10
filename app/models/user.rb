@@ -6,8 +6,7 @@ class User < ApplicationRecord
   has_many :groups, :through => :groups_users
   has_many :user_groups, dependent: :destroy
   has_many :groups, through: :user_groups
-
-
+  
   def self.not_in_group(group)
     user_ids = group.users.map(&:id)
     self.where.not(id: user_ids)
