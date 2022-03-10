@@ -6,12 +6,14 @@ class User < ApplicationRecord
   has_many :groups, :through => :groups_users
   has_many :user_groups, dependent: :destroy
   has_many :groups, through: :user_groups
-  validates_uniqueness_of :group
-  
-  
   
   def self.not_in_group(group)
-    joins('LEFT JOIN user_groups ON user_groups.user_id = users.id').where("user_groups.group_id != ? OR user_groups.group_id is null", group.id)
+    user_ids = group.users.map(&:id)
+    self.where.not(id: user_ids)
   end
-  
+
+  def membership?(group)
+    user_groups.find_by(group: group).present?
+  end
+
 end

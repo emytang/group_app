@@ -5,7 +5,8 @@ one:
   email: m1@g.c
   description: MyText
 
-two:
-  name: M2
-  email: m2@g.c
-  description: MyText
+#two:
+#  name: M2
+#  email: m2@g.c
+#  description: MyText
+

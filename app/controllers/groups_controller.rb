@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-
   # GET /groups
   # GET /groups.json
   def index
@@ -22,21 +21,30 @@ class GroupsController < ApplicationController
   end
 
   def add_to_group
-    g = Group.find_by(params[:group_id])
-    mem = User.find_by(params[:id])
-    @added = UserGroup.create(group_id: g.id, user_id: mem.id)
+    @g = Group.find_by(id: params[:group_id])
+    users = User.all
+    mem = users.find_by(id: params[:id] )
+
     respond_to do |format|
-      if @added.save
-        format.html { redirect_to g, notice: 'User was successfully added.' }
-        format.json { render :show, status: :created, location: @group }
-        # format.datetime :created_at, null: false
-      else
-        format.html { render :new }
+      if mem.membership? @g
+        format.html { redirect_to @g, notice: 'User is already in the Group.' }
         format.json { render json: @group.errors, status: :unprocessable_entity }
+      else
+        @g.users << mem
+        format.html { redirect_to @g, notice: 'User was successfully added.' }
+        format.json { render :show, status: :created, location: @group }
       end
       # format.datetime :created_at, null: false
     end
-    
+  end
+
+  def revoke_from_group
+    mem = UserGroup.find_by(params[:id])
+    g = Group.find_by(id: params[:group_id])
+    mem.destroy
+    puts g.inspect
+    puts mem.inspect
+    redirect_to group_path, notice: 'User was successfully destroyed in the group.'
   end
   
   # GET /groups/new
@@ -91,10 +99,12 @@ class GroupsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       @group = Group.find(params[:id])
+
     end
 
     # Only allow a list of trusted parameters through.

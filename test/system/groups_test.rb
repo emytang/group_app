@@ -14,7 +14,6 @@ class GroupsTest < ApplicationSystemTestCase
 
   test "creating a Group" do
     visit groups_url
-    # find('button-1').click
     click_on "Add New Group"
 
     fill_in "Description", with: "aaaa" #@group.description

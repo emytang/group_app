@@ -23,10 +23,5 @@ class UsersGroupsController < ApplicationController
   
   def show
   end
-  
-  # def find
-  #   render @group.find(@group.users.id = 77)
-  # end
-  
-  
+
 end

@@ -1,15 +1,10 @@
-<!--<h4 style="display:inline;">Group Name: <%= @group.name %></h1>-->
-<h4 style="display:inline;">List of Users</h4> 
-
-
+<h4 style="display:inline;">List of Users</h4>
 <div class="container">
     <div class="row">
         <table class ="table table-striped table-bordered table-hover">
 
           <thead class ="thead-dark">
             <tr>
-              <!--<th>Member ID</th>-->
-              <!--<th>Group ID</th>-->
               <th>Actions</th>
               <th>First Name</th>
               <th>Last Name</th>
@@ -20,11 +15,8 @@
           <tbody>
             <% @members.each do |member| %>
               <tr>
-                <!--<td><%= member.id %></td>-->
-                <!--<td><%= @group.id %></td>-->
                 <td>
                    <%= link_to 'Delete', revoke_from_group_path(member.id), data: { confirm: 'Are you sure?'  }, class: "btn btn-danger"%>
-
                 </td>
                 <td><%= member.first_name %></td>
                 <td><%= member.last_name %></td>
